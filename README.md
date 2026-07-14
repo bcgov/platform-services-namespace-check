@@ -1,29 +1,24 @@
-# Application Name
+# OpenShift Namespace Best-Practices Check
 
-## What am I?
+This repo contains a script that audits a single OpenShift namespace for common application architecture issues. It checks for 8 potential problems and prints a detailed report with explanations and recommended next steps for each issue found.
 
-I am a template repo for use by the platform services team to encourage consistency in documentation and repo layout. For those using me, do not feel like you are *required* to adhere to this layout if you feel something better would suit the needs of your application or service. Find more information about this template [here](https://github.com/bcgov-c/platform-services-docs/blob/main/repo-organization.md)
+## Checks Performed
 
-**Sadly, topics are not automatically imported when creating a repository from a template. Ensure you include the following topics:**
-- `citz`
-- `devops`
-- `platform-services`
-- `supported` / `unsupported`
-- plus any additional topics that may be appropriate
+1. **Single-Pod Deployments** - flags Deployments, DeploymentConfigs, and StatefulSets running with only one pod
+2. **StatefulSets Without a Pod Disruption Budget** - flags multi-replica StatefulSets with no PDB
+3. **Backup Volumes** - flags PVCs that appear to be backup volumes but aren't using the correct storage class, and vice versa
+4. **StatefulSets With Wrong Storage Class** - flags StatefulSets not using `netapp-block-standard`
+5. **Databases Running as Deployments** - flags Deployments whose image name suggests a database workload
+6. **Old 'Openshift' Namespace Images** - flags pods using outdated images from the namespace 'openshift'
+7. **PDBs With 0 or Fewer Allowed Disruptions** - flags Pod Disruption Budgets that are misconfigured from the number of allowed disruptions
+8. **Deprecated DeploymentConfigs** - flags DeploymentConfigs, which are deprecated and should be migrated to Deployments
 
-Please use this README as a template for your own README, including all the same information, as appropriate.
+## Usage
 
-Consider including your namespace name(s) in this section, so others supporting this tool know where to look.
+1. In your terminal, log in to your OpenShift cluster using `oc login -w`
+2. xxxxx
 
 ## Contact Info
 
-Relevant rocketchat channels, maybe some outside docs, vendor support portals, etc.
-
-## Vendor Info
-
-If this is a deployment of a vendored product, include some links to relevant repos and documentation.
-
-## Repo Overview
-
-Tell me where to find important stuff in this repo and provide some info about the layout.
+Please contact adin.litman@gov.bc.ca with any questions
 
