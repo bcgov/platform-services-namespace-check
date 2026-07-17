@@ -32,7 +32,7 @@ If you do not have `oc` installed, follow these [instructions](https://developer
 
 ## Usage
 
-1. In your terminal, log in to the OpenShift cluster that your namespace lives on.
+1. In your terminal, log in to the OpenShift cluster that your [namespace lives on](https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/openshift-projects-and-access/login-to-openshift/). If you are unfamiliar with how to log into OpenShift in terminal, this [video](https://www.youtube.com/watch?v=7tlANUhgGdc) walkthrough demonstrates the `oc login` process.
 2. Clone this repository:
 ```
 git clone https://github.com/bcgov/platform-services-namespace-check
@@ -42,27 +42,27 @@ git clone https://github.com/bcgov/platform-services-namespace-check
 cd platform-services-namespace-check
 ```
 4. Create a virtual environment:
-  - Windows (PowerShell/Command Prompt):
-  ```
-  python -m venv venv
-  ```
-  - Mac/Linux/WSL:
-  ```
-  python3 -m venv venv
-  ```
+   - Windows (PowerShell/Command Prompt):
+   ```
+   python -m venv venv
+   ```
+   - Mac/Linux/WSL:
+   ```
+   python3 -m venv venv
+   ```
 5. Activate the virtual environment:
-  - Windows (PowerShell):
-  ```
-  venv\Scripts\Activate.ps1
-  ```
-  - Windows (Command Prompt):
-  ```
-  venv\Scripts\activate
-  ```
-  - Mac/Linux/WSL:
-  ```
-  source venv/bin/activate
-  ```
+   - Windows (PowerShell):
+   ```
+   venv\Scripts\Activate.ps1
+   ```
+   - Windows (Command Prompt):
+   ```
+   venv\Scripts\activate
+   ```
+   - Mac/Linux/WSL:
+   ```
+   source venv/bin/activate
+   ```
 Your terminal should now show `(venv)` at the start of the line, confirming the virtual environment is active. Make sure you activate it each time you open a new terminal session to run this script.
 6. Install the required dependencies:
 ```
