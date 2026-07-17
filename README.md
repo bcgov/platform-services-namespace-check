@@ -64,6 +64,7 @@ cd platform-services-namespace-check
    source venv/bin/activate
    ```
 Your terminal should now show `(venv)` at the start of the line, confirming the virtual environment is active. Make sure you activate it each time you open a new terminal session to run this script.
+
 6. Install the required dependencies:
 ```
 pip install -r requirements.txt
@@ -72,7 +73,8 @@ pip install -r requirements.txt
 ```
 python namespace_best_practices.py
 ```
-8. When prompted, enter the name of the namespace you'd like to check (e.g., d8f105-dev)
+8. When prompted, enter the name of the namespace you'd like to check (e.g., d8f105-dev).
+> To check a different namespace, simply run the script again (step 7).
 
 ## Contact Info
 
