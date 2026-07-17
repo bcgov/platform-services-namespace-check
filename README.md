@@ -13,10 +13,66 @@ This repo contains a script that audits a single OpenShift namespace for common 
 7. **PDBs With 0 or Fewer Allowed Disruptions** - flags Pod Disruption Budgets that are misconfigured from the number of allowed disruptions
 8. **Deprecated DeploymentConfigs** - flags DeploymentConfigs, which are deprecated and should be migrated to Deployments
 
+## Prerequisites
+
+- **Python 3**. Check your version with:
+  - Windows (PowerShell/Command Prompt):
+  ```
+  python --version
+  ```
+  - Mac/Linux/WSL: 
+  ```
+  python3 --version
+  ```
+- **The OpenShift CLI (`oc`)** installed. Confirm it's installed and check your version with:
+```
+oc version
+```
+If you do not have `oc` installed, follow these [instructions](https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/openshift-projects-and-access/install-the-oc-command-line-tool/).
+
 ## Usage
 
-1. In your terminal, log in to your OpenShift cluster using `oc login -w`
-2. xxxxx
+1. In your terminal, log in to the OpenShift cluster that your namespace lives on.
+2. Clone this repository:
+```
+git clone https://github.com/bcgov/platform-services-namespace-check
+```
+3. Move into the correct directory:
+```
+cd platform-services-namespace-check
+```
+4. Create a virtual environment:
+  - Windows (PowerShell/Command Prompt):
+  ```
+  python -m venv venv
+  ```
+  - Mac/Linux/WSL:
+  ```
+  python3 -m venv venv
+  ```
+5. Activate the virtual environment:
+  - Windows (PowerShell):
+  ```
+  venv\Scripts\Activate.ps1
+  ```
+  - Windows (Command Prompt):
+  ```
+  venv\Scripts\activate
+  ```
+  - Mac/Linux/WSL:
+  ```
+  source venv/bin/activate
+  ```
+Your terminal should now show `(venv)` at the start of the line, confirming the virtual environment is active. Make sure you activate it each time you open a new terminal session to run this script.
+6. Install the required dependencies:
+```
+pip install -r requirements.txt
+```
+7. Run the script:
+```
+python namespace_best_practices.py
+```
+8. When prompted, enter the name of the namespace you'd like to check (e.g., d8f105-dev)
 
 ## Contact Info
 
