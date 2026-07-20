@@ -25,7 +25,7 @@ while True:
     # If not logged in, print a message and continue the loop (skip to next iteration)
     whoami_result = subprocess.run(['oc', 'whoami'], capture_output=True, text=True)
     if whoami_result.returncode:
-        print("You're not logged in to the cluster, please run oc login -w")
+        print("You're not logged in to the cluster, please run oc login -w in a seperate terminal window, then re-enter the namespace name")
         continue
 
     # Fetch the token and server URL
