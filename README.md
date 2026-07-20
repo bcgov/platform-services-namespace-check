@@ -6,11 +6,11 @@ This repo contains a script that audits a single OpenShift namespace for common 
 
 1. **Single-Pod Deployments** - flags Deployments, DeploymentConfigs, and StatefulSets running with only one pod
 2. **StatefulSets Without a Pod Disruption Budget** - flags multi-replica StatefulSets with no PDB
-3. **Backup Volumes** - flags PVCs that appear to be backup volumes but aren't using the correct storage class, and vice versa
-4. **StatefulSets With Wrong Storage Class** - flags StatefulSets not using `netapp-block-standard`
+3. **Backup Volumes** - flags PVCs whose name suggests they're backup volumes but aren't using the `netapp-file-backup` storage class, as well as PVCs whose name doesn't suggest they're a backup volume but are using the `netapp-file-backup` storage class
+4. **StatefulSets With Wrong Storage Class** - flags StatefulSets not using the `netapp-block-standard` storage class
 5. **Databases Running as Deployments** - flags Deployments whose image name suggests a database workload
-6. **Old 'Openshift' Namespace Images** - flags pods using outdated images from the namespace 'openshift'
-7. **PDBs With 0 or Fewer Allowed Disruptions** - flags Pod Disruption Budgets that are misconfigured from the number of allowed disruptions
+6. **Old 'openshift' Namespace Images** - flags pods using outdated images from the namespace 'openshift'
+7. **PDBs With 0 or Fewer Allowed Disruptions** - flags PDBs configured with zero or fewer allowed disruptions
 8. **Deprecated DeploymentConfigs** - flags DeploymentConfigs, which are deprecated and should be migrated to Deployments
 
 ## Prerequisites
@@ -78,5 +78,5 @@ python namespace_best_practices.py
 
 ## Contact Info
 
-Please contact adin.litman@gov.bc.ca with any questions
+Please contact adin.litman@gov.bc.ca with any questions or feedback.
 
