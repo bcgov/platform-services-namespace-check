@@ -39,14 +39,12 @@ while True:
     namespace_url = openshifturl + '/api/v1/namespaces/' + namespace_name
     namespace_response = make_api_call(namespace_url)
     
-    # If 401 -> print a message telling them to log in, then continue the loop
     if namespace_response.get('code', None) == 401:
-        print("Token is incorrect or for the wrong cluster")
+        print("401 error: Token is incorrect or for the wrong cluster or the Namespace doesn't exist")
         continue
 
-    # If 404 -> print a message telling them the namespace is invalid, then continue the loop
     if namespace_response.get('code', None) == 404:
-        print("Namespace doesn't exist or is not accessible with this token")  
+        print("404 error: Namespace doesn't exist or is not accessible with this token")  
         continue
 
     # If neither -> break out of the loop, since everything is valid
