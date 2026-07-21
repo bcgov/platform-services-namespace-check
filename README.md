@@ -19,12 +19,12 @@ This repo contains a script that audits a single OpenShift namespace for common 
 
 Check whether Python 3 is already installed.
 
-- **Windows (PowerShell/Command Prompt)**
+#### Windows (PowerShell/Command Prompt)
 ```
 python --version
 ```
 
-- **macOS/Linux/WSL**
+#### macOS/Linux/WSL
 ```
 python3 --version
 ```
@@ -33,7 +33,7 @@ If Python 3 is not installed, install it using the instructions below.
 
 #### Install Python 3 on Windows
 
-- Download and install Python 3 from the [official Python website](https://www.python.org/downloads/)
+- Download and install Python 3 from the [official Python website](https://www.python.org/downloads/).
 
 - Confirm the installation:
 ```
@@ -47,8 +47,7 @@ python --version
 brew install python
 ```
 
-- Or download the macOS installer from the [official Python website](https://www.python.org/downloads/)
-https://www.python.org/downloads/
+- Or download the macOS installer from the [official Python website](https://www.python.org/downloads/).
 
 - Confirm the installation:
 ```
