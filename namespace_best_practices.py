@@ -435,14 +435,14 @@ check3_explanation = (
     "Either case may indicate a misconfigured or mislabeled volume worth double-checking.")
 print_explanation(check3_explanation)
 
-print_subheader('Backup volumes without netapp-file-backup storageclass')
+print_subheader('Backup volumes without netapp-file-backup storage class')
 if flagged_backupvolumes1:
     for pvc in flagged_backupvolumes1:
         print_item(pvc)
 else:
     print_none()
 
-print_subheader('Volumes with netapp-file-backup storageclass but not a backup volume')
+print_subheader('Volumes with netapp-file-backup storage class but not a backup volume')
 if flagged_backupvolumes2:
     for pvc in flagged_backupvolumes2:
         print_item(pvc)

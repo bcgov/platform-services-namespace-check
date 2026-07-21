@@ -15,20 +15,55 @@ This repo contains a script that audits a single OpenShift namespace for common 
 
 ## Prerequisites
 
-- **Python 3**. Check your version with:
-  - Windows (PowerShell/Command Prompt):
-  ```
-  python --version
-  ```
-  - Mac/Linux/WSL: 
-  ```
-  python3 --version
-  ```
-- **The OpenShift CLI (`oc`)** installed. Confirm it's installed and check your version with:
+### Python 3
+
+Check whether Python 3 is already installed.
+
+- **Windows (PowerShell/Command Prompt)**
+```
+python --version
+```
+
+- **macOS/Linux/WSL**
+```
+python3 --version
+```
+
+If Python 3 is not installed, install it using the instructions below.
+
+#### Install Python 3 on Windows
+
+- Download and install Python 3 from the [official Python website](https://www.python.org/downloads/)
+
+- Confirm the installation:
+```
+python --version
+```
+
+#### Install Python 3 on macOS
+
+- If you use Homebrew, install Python 3 with:
+```
+brew install python
+```
+
+- Or download the macOS installer from the [official Python website](https://www.python.org/downloads/)
+https://www.python.org/downloads/
+
+- Confirm the installation:
+```
+python3 --version
+```
+
+### OpenShift CLI (`oc`)
+
+Confirm the OpenShift CLI is installed and check your version:
 ```
 oc version
 ```
+
 If you do not have `oc` installed, follow these [instructions](https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/openshift-projects-and-access/install-the-oc-command-line-tool/).
+
 
 ## Usage
 
@@ -46,7 +81,7 @@ cd platform-services-namespace-check
    ```
    python -m venv venv
    ```
-   - Mac/Linux/WSL:
+   - macOS/Linux/WSL:
    ```
    python3 -m venv venv
    ```
@@ -59,7 +94,7 @@ cd platform-services-namespace-check
    ```
    venv\Scripts\activate
    ```
-   - Mac/Linux/WSL:
+   - macOS/Linux/WSL:
    ```
    source venv/bin/activate
    ```
