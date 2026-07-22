@@ -108,7 +108,8 @@ pip install -r requirements.txt
 python namespace_best_practices.py
 ```
 8. When prompted, enter the name of the namespace you'd like to check (e.g., d8f105-dev).
-> To check a different namespace, simply run the script again (step 7).
+
+**Note:** To check a different namespace, simply run the script again (step 7).
 
 ## Contact Info
 

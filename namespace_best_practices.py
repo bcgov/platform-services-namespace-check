@@ -40,7 +40,7 @@ while True:
     namespace_response = make_api_call(namespace_url)
     
     if namespace_response.get('code', None) == 401:
-        print("401 error: Token is incorrect or for the wrong cluster or the Namespace doesn't exist")
+        print("401 error: Your token is invalid or expired. Please run 'oc login' again, then re-enter the namespace name")
         continue
 
     if namespace_response.get('code', None) == 404:
