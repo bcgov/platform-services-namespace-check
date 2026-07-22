@@ -196,7 +196,7 @@ def find_backup_volumes(pvc_response):
 
 # Check 4:
 
-def find_sset_wrong_storage(sset_response):
+def find_sset_wrong_storage(sset_response, pvc_response):
     wrong_storageclass = []
     for sset in sset_response['items']:
         if len(sset['spec'].get('volumeClaimTemplates', [])) > 0:
@@ -205,10 +205,17 @@ def find_sset_wrong_storage(sset_response):
                 
             for template in volumeclaimtemplates:
                 storageclassname = template['spec'].get('storageClassName', None)
+                template_name = template['metadata']['name']
+
+                if storageclassname is None:
+                    pvc_name_to_find = template_name + '-' + statefulset_name + '-0'
+                    for pvc in pvc_response['items']:
+                        if pvc['metadata']['name'] == pvc_name_to_find:
+                            storageclassname = pvc['spec'].get('storageClassName', None)
+
+                if storageclassname != 'netapp-block-standard':
+                    wrong_storageclass.append({'statefulset': statefulset_name, 'storageclass': storageclassname})
     
-                if storageclassname and storageclassname != 'netapp-block-standard':
-                    display_class = storageclassname if storageclassname else 'default (netapp-file-standard)'
-                    wrong_storageclass.append({'statefulset': statefulset_name, 'storageclass': display_class})
 
     return wrong_storageclass
 
@@ -294,7 +301,7 @@ def find_dconfigs(dconfig_response):
 results_problem, results_potential = single_pod_deployments(deployment_response, dconfig_response, sset_response)
 no_pdb_ssets = find_sset_without_pdb(sset_response, pdb_response)
 flagged_backupvolumes1, flagged_backupvolumes2 = find_backup_volumes(pvc_response)
-wrong_storageclass = find_sset_wrong_storage(sset_response)
+wrong_storageclass = find_sset_wrong_storage(sset_response, pvc_response)
 flagged_db_deployments = check_databases_sset(deployment_response)
 flagged_openshift_images = find_old_openshift_images(podlist_response)
 bad_pdbs = check_pdb_disruptions(pdb_response, podlist_response)
